@@ -1,0 +1,17 @@
+edit users: id,name,email,password,role(admin,customer,user,default(customer)),status(0,1)
+
+
+
+Admin:
+
+
+parking_centers: id,user_id,parking_center_name,city,address
+
+servies: id,user_id,service_name,service_price,discount(default=0),lable,thumbnail,description
+
+
+customer:
+
+customers: id,user_id,all_imput_fields (when register email and password save in users)
+
+parkings: id,customer_id, parking_center_id, service_id, pickup_location, pick_up_date, drop_date, drop_location, note(nullable)
