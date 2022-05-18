@@ -112,7 +112,13 @@
                                                         {{$parking["parkingCenters"]->parking_center_name}}
                                                     </td>
                                                     <td>
-                                                        {{$parking["services"]->service_name}}
+                                                        @if($parking["services"])
+                                                        @foreach($parking["services"] as $customer_service)
+                                                        @foreach($all_services as $services)
+                                                            {{$services->service_name}}
+                                                        @endforeach
+                                                        @endforeach
+                                                        @endif
                                                     </td>
                                                     <td>{{$parking->pickup_address}}</td>
                                                     <td>{{$parking->start_data}}</td>

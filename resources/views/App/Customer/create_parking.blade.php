@@ -27,14 +27,17 @@
 										
 										<div class="col-lg-4 col-12">
 											<div class="form-group">
-												<label>Select Service<span>*</span></label><br>
-												<select required name="service_id">
-													<option value="">Select</option>
-													@if(!empty($services))
+												<label for="lang">Select<span>*</span></label><br>
+												<select name="service_id[]" class="lang" multiple="" style="display: block !important">
+													<option value="1">Select</option>
+													<option value="2">1</option>
+													<option value="3">2</option>
+													<option value="4">3</option>
+													{{-- @if(!empty($services))
 													@foreach($services as $serv)
 													<option value="{{$serv->id}}">{{$serv->service_name}} - $ {{$serv->service_price}}</option>
 													@endforeach
-													@endif
+													@endif --}}
 												</select>
 											</div>
 										</div>
@@ -105,7 +108,11 @@
 				</div>
 			</div>
 	</section>
-
+<style>
+	.lang{
+		display: block !important;
+	}
+</style>
 	<!-- <div class="map-section">
 		<div id="myMap"></div>
 	</div> -->

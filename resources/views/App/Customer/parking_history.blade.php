@@ -33,7 +33,18 @@
                             @foreach($allParking as $parking)
 
                                 <tr>
-                                    <td>{{$parking['services']->service_name}}</td>
+                                    <td style="width: 100px">
+                                    @if(!empty($parking['services']))
+                                    @foreach($parking['services'] as $key => $parking_service)     
+                                    @foreach($all_services as $key => $service) 
+                                        @if($parking_service->service_id == $service->id)    
+                                            {{$service->service_name}} 
+                                        <br>
+                                        @endif
+                                    @endforeach
+                                    @endforeach
+                                    @endif
+                                </td>
                                     <td>{{$parking['parkingCenters']->parking_center_name}}</td>
                                     <td>{{$parking->pickup_address}}</td>
                                     <td>{{$parking->drop_address}}</td>

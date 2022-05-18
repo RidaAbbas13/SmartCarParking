@@ -39,13 +39,21 @@ tr{background-color: #f2f2f2;}
             <th>End Date</th>
         </tr>
 
+        @foreach($findParking["services"] as $customer_service)
+        @foreach($all_services as $services)
+        @if($customer_service->service_id == $services->id )
         <tr>
-            <td>{{$findParking["services"]->service_name}}</td>
+            
+            <td>{{$services->service_name}}</td>
+            {{-- <td>service_name</td> --}}
             <td>{{$findParking["parkingCenters"]->parking_center_name}}</td>
-            <td>{{$findParking["services"]->service_price}}</td>
+            <td>{{$services->service_price}}</td>
             <td>{{$findParking->start_data}}</td>
             <td>{{$findParking->end_date}}</td>
         </tr>
+        @endif
+        @endforeach
+        @endforeach
 
         @if(!empty($addtionalCharges))
         @foreach($addtionalCharges as $charges)
@@ -63,8 +71,52 @@ tr{background-color: #f2f2f2;}
                 <td></td>
                 <td></td>
                 <td></td>
-                <td  class="backgroup">Service Charges</td>
-                <td>{{$findParking["services"]->service_price}}</td>
+                <td  class="backgroup">Service Charges Per Day</td>
+                <td>
+                    <?php $sub_total = 0; ?>
+                    @foreach($findParking["services"] as $customer_service)
+                    @foreach($all_services as $services)
+                    @if($customer_service->service_id == $services->id)
+                        <?php $sub_total += $services->service_price; ?>
+                    @endif
+                    @endforeach
+                    @endforeach
+                    {{$sub_total}}
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td  class="backgroup">Total days</td>
+                <td>
+                    
+                    <?php 
+                        $startDate = $findParking->start_data;
+                        $endDate =$findParking->end_date;
+                        $diff = date_diff(date_create($startDate), date_create($endDate));
+                        $days =  $diff->format('%d');
+                        ?>
+                    {{$days+1}}
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td  class="backgroup">Total Service Charges</td>
+                <td>
+                    
+                    <?php 
+                        $startDate = $findParking->start_data;
+                        $endDate =$findParking->end_date;
+                        $diff = date_diff(date_create($startDate), date_create($endDate));
+                        $days =  $diff->format('%d');
+                        ?>
+                    {{($sub_total)*($days+1)}}
+                </td>
             </tr>
 
             <tr>
@@ -72,7 +124,7 @@ tr{background-color: #f2f2f2;}
                 <td></td>
                 <td></td>
                 <td  class="backgroup">Grand Total</td>
-                <td>{{$sumAmount + $findParking["services"]->service_price}}</td>
+                <td>{{$sumAmount + ($sub_total)*($days+1)}}</td>
             </tr>
     </table>
 </body>

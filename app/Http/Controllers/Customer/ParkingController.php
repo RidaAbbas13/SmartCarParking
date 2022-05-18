@@ -9,6 +9,8 @@ use App\Models\ParkingCenter;
 use App\Models\Parking;
 use Auth;
 use App\Models\AddtionalCharge;
+use App\Models\Customer;
+use App\Models\CustomerService;
 
 class ParkingController extends Controller
 {
@@ -25,8 +27,10 @@ class ParkingController extends Controller
     public function index()
     {
         $allParking = Parking::with("services")->with('parkingCenters')->orderBy('id', "DESC")->get();
+        $all_services = Service::all();
 
         return view('App.Customer.parking_history')
+            ->with("all_services", $all_services)
             ->with("allParking", $allParking);
     }
 
@@ -36,13 +40,21 @@ class ParkingController extends Controller
 
         $createParking = Parking::create([
             "user_id" => $user_id,
-            "service_id" => $request->service_id,
+            "service_id" => "0",
             "parking_center_id" => $request->parking_center_id,
             "pickup_address" => $request->pickup_address,
             "drop_address" => $request->drop_address,
             "start_data" => $request->start_data,
             "end_date" => $request->end_date,
         ]);
+
+        foreach($request->service_id as $service){
+
+            $createService = CustomerService::create([
+                "parking_id" => $createParking->id,
+                "service_id" => $service,
+            ]);
+        }
 
         $findParking = Parking::with('services')->with('customers')->with('parkingCenters')->find($createParking->id);
         $addtionalCharges = AddtionalCharge::all();
@@ -54,7 +66,7 @@ class ParkingController extends Controller
             "sumAmount" => $sumAmount,
         ];
 
-        \Mail::to("zahidjakhar2370@gmail.com")->send(new \App\Mail\BillMail($details));
+        // \Mail::to("zahidjakhar2370@gmail.com")->send(new \App\Mail\BillMail($details));
 
         return redirect('parking-history');
     }

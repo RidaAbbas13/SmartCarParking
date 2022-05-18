@@ -17,4 +17,9 @@ class Service extends Model
         "thubnail",
         "description",
     ];
+
+    public function services()
+    {
+        return $this->belongsToMany("App\Models\CustomerService","service_id", "id");
+    }
 }

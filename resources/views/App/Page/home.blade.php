@@ -7,11 +7,12 @@
     $(function(){
         //prepare Your data array with img urls
         var dataArray=new Array();
-        dataArray[0]="app/images/slider/slider7.jpg";
-        dataArray[1]="app/images/slider/slider8.jpg";
-        dataArray[2]="app/images/slider/slider9.jpg";
-        dataArray[3]="app/images/slider/slider10.jpg";
-        dataArray[4]="app/images/slider/slider11.jpg";
+        
+        dataArray[1]="app/images/slider/2.jpg";
+        dataArray[2]="app/images/slider/3.jpg";
+        dataArray[0]="app/images/slider/1.jpg";
+        // dataArray[3]="app/images/slider/slider10.jpg";
+        // dataArray[4]="app/images/slider/slider11.jpg";
         // dataArray[5]="app/images/slider/slider6.jpg";
         // dataArray[5]="app/images/slider/slider7.jpg";
         // dataArray[2]="images/img3.png";
@@ -28,7 +29,7 @@
     });
 </script>
   <!--/ End Header -->
-  <img src="app/images/slider/slider7.jpg" id="thisImg" style="height: 600px !important;width: 100%;size: cover">
+  <img src="app/images/slider/1.jpg" id="thisImg" style="height: 600px !important;width: 100%;size: cover">
   <!-- Slider Area -->
  
   <!--/ End Slider Area -->
@@ -41,22 +42,7 @@
 
         <div class="col-lg-12 col-12">
           <h3 class="text-center">Welcome To Smart Car Park</h3>
-          <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+          <span class="p-5 text-justify">We will make a mobile or web application through which we will provide a smart car parking service which has car parking rental, maintenance, car wash and drop services are included. Users will login to the app and then search for nearby car parking land on our portal. After that the user selects the indoor or outdoor parking according to his/her needs. Also, users will select the period for car parking. We will provide maintenance services too like start the car for some time and if necessary, take a ride on the car to check the working of all components of the car. So that when the owner of the car come back, he/she receive the car in well maintained condition. We will also provide free car wash services to the owners. We will pick him up from his desire location and drop the owner of the car to the Air Port. And when he come back to the home country then we will handle his car on Air Port.</span>
         </div>
         <!-- /End Single Banner  -->
       </div>
@@ -139,7 +125,7 @@
 
   
   
-  <section class="section free-version-banner">
+  {{-- <section class="section free-version-banner">
         <div class="container" >
             <div class="row align-items-center">
                 <div class="col-md-8 offset-md-2 col-xs-12">
@@ -155,7 +141,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
@@ -198,56 +184,65 @@
             <div class="single-product">
               <div class="product-img">
                 <a href="#">
-                  <img class="default-img" src="app/images/blogImage/zahid.jpg" style="    height: 260px;" alt="#">
+                  <img class="default-img" src="app/images/blogImage/profile.jpg" style="    height: 260px;" alt="#">
                   <span class="out-of-stock">Full Stack Developer</span>
                 </a>
               </div>
 
 
               <div class="product-content">
-                <h3 class="text-center"><a href="#">Zahid Akbar</a></h3>
+                <h3 class="text-center"><a href="#">Salim Saif Alsuwaidi 
+                </a></h3>
+                <p  class="text-center">salim.936@icloud.com </p>
+                <p  class="text-center">0507151700</p>
               </div>
             </div>
 
             <div class="single-product">
               <div class="product-img">
                 <a href="#">
-                  <img class="default-img" src="app/images/blogImage/zahid.jpg" style="    height: 260px;" alt="#">
+                  <img class="default-img" src="app/images/blogImage/profile.jpg" style="    height: 260px;" alt="#">
                   <span class="out-of-stock">Full Stack Developer</span>
                 </a>
               </div>
 
 
               <div class="product-content">
-                <h3 class="text-center"><a href="#">Zahid Akbar</a></h3>
+                <h3 class="text-center"><a href="#">Abdullah Ahmed Shuhail </a></h3>
+                <p  class="text-center"> abdullahshuhail1@gmail.com</p>
+                <p  class="text-center">0509466466</p>
               </div>
             </div>
 
-            <!-- <div class="single-product">
+             <div class="single-product">
               <div class="product-img">
                 <a href="#">
-                  <img class="default-img" src="app/images/blogImage/abid.jpeg" style="    height: 260px;" alt="#">
-                  <span class="out-of-stock">Backend Developer</span>
+                  <img class="default-img" src="app/images/blogImage/profile.jpg" style="    height: 260px;" alt="#">
+                  <span class="out-of-stock">Full Stack Developer</span>
                 </a>
               </div>
 
 
               <div class="product-content">
-                <h3 class="text-center"><a href="#">Abid Ali</a></h3>
+                <h3 class="text-center"><a href="#">Sultan Younis Alnimr</a></h3>
+                <p  class="text-center">Sultanalnimr@hotmail.com</p>
+                <p  class="text-center">0502233381</p>
               </div>
-            </div> -->
+            </div> 
 
             <div class="single-product">
               <div class="product-img">
                 <a href="#">
-                  <img class="default-img" src="app/images/blogImage/zahid.jpg" style="    height: 260px;" alt="#">
+                  <img class="default-img" src="app/images/blogImage/profile.jpg" style="    height: 260px;" alt="#">
                   <span class="out-of-stock">Full Stack Developer</span>
                 </a>
               </div>
 
 
               <div class="product-content">
-                <h3 class="text-center"><a href="#">Zahid Akbar</a></h3>
+                <h3 class="text-center"><a href="#">Abdulla Hassan Alhosani </a></h3>
+                <p  class="text-center">Abdulla.alhosani22@gmail.com</p>
+                <p  class="text-center">0551111412</p>
               </div>
             </div>
 

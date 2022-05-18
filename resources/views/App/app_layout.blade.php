@@ -122,10 +122,10 @@
             <!--/ End Search Form -->
             <div class="mobile-nav"></div>
           </div>
-          <div class="col-lg-7 col-md-7 col-12">
+          <div class="col-lg-5 col-md-7 col-12">
             
           </div>
-          <div class="col-lg-2 col-md-3 col-12">
+          <div class="col-lg-4 col-md-3 col-12">
             <div class="right-bar">
               <!-- Search Form -->
               <!-- <div class="sinlge-bar">
@@ -138,6 +138,12 @@
                <div class="sinlge-bar">
                   <span>{{Auth::user()->name ?? ''}}</span>
               </div>
+              <div class="sinlge-bar">
+                <form method="post" action="{{URL::to('logout')}}">
+                  @csrf
+                  <button type="submit" class="btn btn-primary">Logout</button>
+                </form>
+            </div>
               @else
               <div class="sinlge-bar">
                 <a href="{{url('customer-register')}}" class="single-icon" style="font-size: 13px;font-weight: 400">Join Free</a>
@@ -189,7 +195,7 @@
                             <ul class="dropdown">
                               <li><a href="{{url('create-parking')}}">Create Parking</a></li>
                               <li><a href="{{url('parking-history')}}">Parking History</a></li>
-                              <li>
+                              {{-- <li>
                                 <a>
                                 <form action="{{URL::to('logout')}}" method="post">
                                   @csrf
@@ -197,7 +203,7 @@
                                   
                                 </form>
                               </a>
-                              </li>
+                              </li> --}}
                             </ul>
                           </li>
                           @endif

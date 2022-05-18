@@ -23,7 +23,7 @@ class Parking extends Model
 
     public function services()
     {
-        return $this->belongsTo("App\Models\Service", "service_id", "id");
+        return $this->hasMany("App\Models\CustomerService","parking_id", "id");
     }
 
     public function customers()

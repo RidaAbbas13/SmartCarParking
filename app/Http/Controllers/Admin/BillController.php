@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Parking;
 use PDF;
 use App\Models\AddtionalCharge;
+use App\Models\Service;
 
 class BillController extends Controller
 {
@@ -14,12 +15,14 @@ class BillController extends Controller
     {
         $findParking = Parking::with('services')->with('customers')->with('parkingCenters')->find($id);
         $addtionalCharges = AddtionalCharge::all();
+        $all_services = Service::all();
         $sumAmount = AddtionalCharge::sum("amount");
 
         $data = [
             "findParking" => $findParking,
             "addtionalCharges" => $addtionalCharges,
             "sumAmount" => $sumAmount,
+            "all_services" => $all_services,
         ];
 
         $pdf = PDF::loadView('App.Email.bill',$data);
@@ -30,11 +33,13 @@ class BillController extends Controller
     {
         $findParking = Parking::with('services')->with('customers')->with('parkingCenters')->find($id);
         $addtionalCharges = AddtionalCharge::all();
+        $all_services = Service::all();
         $sumAmount = AddtionalCharge::sum("amount");
 
         return view('App.Email.bill')
                 ->with("findParking", $findParking)
                 ->with("sumAmount", $sumAmount)
+                ->with("all_services", $all_services)
                 ->with("addtionalCharges", $addtionalCharges);
     }
 }

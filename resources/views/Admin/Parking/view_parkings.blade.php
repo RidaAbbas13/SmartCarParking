@@ -44,7 +44,19 @@
                                                 <tr>
                                                     <td>{{$parking["customers"]->name}}</td>
                                                     <td>{{$parking["customers"]->mobile_no}}</td>
-                                                    <td>{{$parking["services"]->service_name}}</td>
+                                                    <td>
+                                                        @if($parking["services"])
+                                                        @foreach($parking["services"] as $customer_service)
+                                                        @foreach($all_services as $services)
+                                                            @if($customer_service->service_id == $services->id)
+                                                            {{$services->service_name}}
+                                                            <br>
+                                                            @endif
+                                                        @endforeach
+                                                        @endforeach
+                                                        @endif
+                                                        
+                                                    </td>
                                                     <td>{{$parking["parkingCenters"]->parking_center_name}}</td>
                                                     <td>{{$parking->pickup_address}}</td>
                                                     <td>{{$parking->drop_address}}</td>
