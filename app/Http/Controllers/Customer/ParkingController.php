@@ -36,12 +36,14 @@ class ParkingController extends Controller
 
     public function store(Request $request)
     {
+        // print_r($request->service_id);exit;
         $user_id = Auth::user()->id ?? 1;
 
         $createParking = Parking::create([
             "user_id" => $user_id,
             "service_id" => "0",
             "parking_center_id" => $request->parking_center_id,
+            "parking_type" => $request->parking_type,
             "pickup_address" => $request->pickup_address,
             "drop_address" => $request->drop_address,
             "start_data" => $request->start_data,

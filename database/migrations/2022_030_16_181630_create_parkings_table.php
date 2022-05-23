@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('parkings', function (Blueprint $table) {
             $table->id();
             $table->foreignId("user_id");
-            $table->foreignId("service_id");
+            $table->foreignId("service_id")->nullable();
             $table->foreignId("parking_center_id");
+            $table->string("parking_type")->default("indoor");
             $table->string("pickup_address");
             $table->string("drop_address");
             $table->string("start_data");

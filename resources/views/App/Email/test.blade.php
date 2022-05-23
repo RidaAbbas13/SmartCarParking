@@ -27,9 +27,9 @@ tr{background-color: #f2f2f2;}
         <h2>Smart Car Parking</h2>
         <span>www.smartcarparking.com</span>
     </center>
-    <h4>{{$details['findParking']["customers"]->name}}</h4>
-    <p>{{$details['findParking']["customers"]->email}}
-    <br>{{$details['findParking']["customers"]->mobile_no}}</p>
+    <h4>{{$details['findParking']["customers"]->name ?? ''}}</h4>
+    <p>{{$details['findParking']["customers"]->email ?? ''}}
+    <br>{{$details['findParking']["customers"]->mobile_no ?? ""}}</p>
     <table>
         <tr>
             <th>Service Name</th>

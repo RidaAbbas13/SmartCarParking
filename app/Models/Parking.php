@@ -15,6 +15,7 @@ class Parking extends Model
         "user_id",
         "service_id",
         "parking_center_id",
+        "parking_type",
         "pickup_address",
         "drop_address",
         "start_data",

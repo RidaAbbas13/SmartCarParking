@@ -26,19 +26,19 @@
 									<div class="row">
 										
 										<div class="col-lg-4 col-12">
-											<div class="form-group">
-												<label for="lang">Select<span>*</span></label><br>
-												<select name="service_id[]" class="lang" multiple="" style="display: block !important">
-													<option value="1">Select</option>
-													<option value="2">1</option>
-													<option value="3">2</option>
-													<option value="4">3</option>
-													{{-- @if(!empty($services))
+											<div class="">
+												<label for="lang">Select Services<span>*</span></label><br>
+												
+													@if(!empty($services))
 													@foreach($services as $serv)
-													<option value="{{$serv->id}}">{{$serv->service_name}} - $ {{$serv->service_price}}</option>
+													
+														@if($serv->id == "1")
+															<label><input type="checkbox" name="service_id[]" value="{{$serv->id}}" checked="true" required style="width: 20px;height:15px ;"> {{$serv->service_name}} - {{$serv->service_price}} </label>
+														@else
+														<label><input type="checkbox" name="service_id[]" value="{{$serv->id}}" required style="width: 20px;height:15px ;"> {{$serv->service_name}} - {{$serv->service_price}} </label>
+														@endif
 													@endforeach
-													@endif --}}
-												</select>
+													@endif
 											</div>
 										</div>
 
@@ -49,9 +49,20 @@
 													<option value="">Select Center</option>
 													@if(!empty($parkingCenters))
 													@foreach($parkingCenters as $parkingC)
-													<option value="{{$parkingC->id}}">{{$parkingC->parking_center_name}}</option>
+														<option value="{{$parkingC->id}}">{{$parkingC->parking_center_name}}</option>
 													@endforeach
 													@endif
+												</select>
+											</div>
+										</div>
+
+										<div class="col-lg-4 col-12">
+											<div class="form-group">
+												<label>Parking Type<span>*</span></label><br>
+												<select required name="parking_type">
+													<option value="">Select Center</option>
+													<option value="indoor">Indoor</option>
+													<option value="outdoor">Outdoor</option>
 												</select>
 											</div>
 										</div>
@@ -80,7 +91,7 @@
 											<div class="form-group message">
 												<label>End Date<span>*</span></label>
 												<input name="end_date" 
-											type="date"
+											type="date">
 											</div>
 										</div>
 										<!-- <div class="col-12">

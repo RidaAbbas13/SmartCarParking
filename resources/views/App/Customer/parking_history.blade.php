@@ -20,6 +20,7 @@
                             <tr class="main-hading">
                                 <th>Service Name</th>
                                 <th>Parking Center</th>
+                                <th>Parking Type</th>
                                 <th class="text-center">Pickup Add.</th>
                                 <th class="text-center">Drop Add.</th>
                                 <th class="text-center">Start</th>
@@ -46,6 +47,7 @@
                                     @endif
                                 </td>
                                     <td>{{$parking['parkingCenters']->parking_center_name}}</td>
+                                    <td>{{$parking->parking_type}}</td>
                                     <td>{{$parking->pickup_address}}</td>
                                     <td>{{$parking->drop_address}}</td>
                                     <td>{{$parking->start_data}}</td>

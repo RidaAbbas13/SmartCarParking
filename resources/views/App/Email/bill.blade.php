@@ -27,13 +27,14 @@ tr{background-color: #f2f2f2;}
         <h2>Smart Car Parking</h2>
         <span>www.smartcarparking.com</span>
     </center>
-    <h4>{{$findParking["customers"]->name}}</h4>
-    <p>{{$findParking["customers"]->email}}
-    <br>{{$findParking["customers"]->mobile_no}}</p>
+    <h4>{{$findParking["customers"]->name ?? ""}}</h4>
+    <p>{{$findParking["customers"]->email ?? ""}}
+    <br>{{$findParking["customers"]->mobile_no ?? ""}}</p>
     <table>
         <tr>
             <th>Service Name</th>
             <th>Parking Center Name</th>
+            <th>Parking Type</th>
             <th>Service Charges</th>
             <th>Start Date</th>
             <th>End Date</th>
@@ -47,6 +48,7 @@ tr{background-color: #f2f2f2;}
             <td>{{$services->service_name}}</td>
             {{-- <td>service_name</td> --}}
             <td>{{$findParking["parkingCenters"]->parking_center_name}}</td>
+            <td>{{$services->service_type}}</td>
             <td>{{$services->service_price}}</td>
             <td>{{$findParking->start_data}}</td>
             <td>{{$findParking->end_date}}</td>
