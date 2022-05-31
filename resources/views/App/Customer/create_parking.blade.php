@@ -35,7 +35,7 @@
 														@if($serv->id == "1")
 															<label><input type="checkbox" name="service_id[]" value="{{$serv->id}}" checked="true" required style="width: 20px;height:15px ;"> {{$serv->service_name}} - {{$serv->service_price}} </label>
 														@else
-														<label><input type="checkbox" name="service_id[]" value="{{$serv->id}}" required style="width: 20px;height:15px ;"> {{$serv->service_name}} - {{$serv->service_price}} </label>
+														<label><input type="checkbox" name="service_id[]" value="{{$serv->id}}" style="width: 20px;height:15px ;"> {{$serv->service_name}} - {{$serv->service_price}} </label>
 														@endif
 													@endforeach
 													@endif

@@ -48,7 +48,7 @@ tr{background-color: #f2f2f2;}
             <td>{{$services->service_name}}</td>
             {{-- <td>service_name</td> --}}
             <td>{{$findParking["parkingCenters"]->parking_center_name}}</td>
-            <td>{{$services->service_type}}</td>
+            <td>{{$findParking->parking_type}}</td>
             <td>{{$services->service_price}}</td>
             <td>{{$findParking->start_data}}</td>
             <td>{{$findParking->end_date}}</td>
@@ -63,6 +63,7 @@ tr{background-color: #f2f2f2;}
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
                 <td  class="backgroup">{{$charges->charges_title}}</td>
                 <td>{{$charges->amount}}</td>
             </tr>
@@ -70,6 +71,7 @@ tr{background-color: #f2f2f2;}
         @endif
 
         <tr>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -91,6 +93,7 @@ tr{background-color: #f2f2f2;}
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
                 <td  class="backgroup">Total days</td>
                 <td>
                     
@@ -98,13 +101,16 @@ tr{background-color: #f2f2f2;}
                         $startDate = $findParking->start_data;
                         $endDate =$findParking->end_date;
                         $diff = date_diff(date_create($startDate), date_create($endDate));
+                        $months =  $diff->format('%m');
                         $days =  $diff->format('%d');
                         ?>
-                    {{$days+1}}
+                    {{($months*30) + ($days+1)}}
+                    {{-- {{$days+1}} --}}
                 </td>
             </tr>
 
             <tr>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -115,9 +121,11 @@ tr{background-color: #f2f2f2;}
                         $startDate = $findParking->start_data;
                         $endDate =$findParking->end_date;
                         $diff = date_diff(date_create($startDate), date_create($endDate));
+                        // $days =  $diff->format('%d');
+                        $months =  $diff->format('%m');
                         $days =  $diff->format('%d');
                         ?>
-                    {{($sub_total)*($days+1)}}
+                    {{($sub_total) * (($months*30)+($days+1))}}
                 </td>
             </tr>
 
@@ -125,8 +133,9 @@ tr{background-color: #f2f2f2;}
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
                 <td  class="backgroup">Grand Total</td>
-                <td>{{$sumAmount + ($sub_total)*($days+1)}}</td>
+                <td>{{$sumAmount + ($sub_total)* (($months*30)+($days+1))}}</td>
             </tr>
     </table>
 </body>
