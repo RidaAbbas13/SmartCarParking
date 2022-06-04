@@ -26,7 +26,7 @@ class ParkingController extends Controller
 
     public function index()
     {
-        $allParking = Parking::with("services")->with('parkingCenters')->orderBy('id', "DESC")->get();
+        $allParking = Parking::where("user_id",Auth::user()->id)with("services")->with('parkingCenters')->orderBy('id', "DESC")->get();
         $all_services = Service::all();
 
         return view('App.Customer.parking_history')
